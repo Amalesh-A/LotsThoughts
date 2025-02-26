@@ -18,8 +18,14 @@ export class UsersListComponent {
   }
 
   private getUsers() {
-    this.userService.getUserList().subscribe(data => {
-      this.users = data;
-    });
+    this.userService.getUserList().subscribe(
+      data => {
+        console.log("Fetched Users:", data); // Debugging API response
+        this.users = data;
+      },
+      error => {
+        console.error("Error fetching users:", error);
+      }
+    );
   }
 }
