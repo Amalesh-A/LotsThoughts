@@ -1,1 +1,19 @@
-<p>create-user works!</p>
+<div class="col-md-6 offset-md-3">
+    <h3 class="text-center font-family: 'Raleway', sans-serif; font-weight: 700"> Welcome to our community!</h3>
+    <form #userForm="ngForm" (ngSubmit) = "onSubmit()">
+        <div class="form-group mt-1">
+            <label>First Name</label>
+            <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
+        </div> 
+
+        <div class="form-group mt-1">
+            <label>Last Name</label>
+            <input type="text" class="form-control" id="lastName" [(ngModel)]="user.lastName" name="lastName" required>
+        </div>
+        <div class="form-group mt-1">
+            <label>Email</label>
+            <input type="text" class="form-control" id="email" [(ngModel)]="user.email" name="email" required>
+        </div>
+        <button class="btn btn-success mt-2" type="submit">Submit</button>
+    </form>
+</div>
