@@ -41,6 +41,12 @@ export class UpdateuserComponent implements OnInit {
 
   onSubmit(form: NgForm): void {
     console.log(this.user)
-    this.updateUser();
+    this.userService.updateUser(this.id, this.user).subscribe(data => {
+      this.gotoUserList();},
+      error => console.log(error));
+  }
+
+  gotoUserList(): void {
+    this.router.navigate(['/users']);
   }
 }
