@@ -1,6 +1,6 @@
 <div class="col-md-6 offset-md-3">
     <h3 class="text-center font-family: 'Raleway', sans-serif; font-weight: 700"> Welcome to our community!</h3>
-    <form #userForm="ngForm" (ngSubmit) = "onSubmit()">
+    <form #userForm="ngForm" (ngSubmit) = "onSubmit(userForm)">
         <div class="form-group mt-1">
             <label>First Name</label>
             <input type="text" class="form-control" id="firstName" [(ngModel)]="user.firstName" name="firstName" required>
