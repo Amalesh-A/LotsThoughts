@@ -12,3 +12,13 @@
   padding: 10px;
 }
 
+.btn-custom {
+  background-color: #736CED !important;  /* Sets the button color */
+  color: white !important;  /* Makes text color white */
+  border: none;  /* Removes default borders */
+}
+
+/* Optional: Hover Effect */
+.btn-custom:hover {
+  background-color: #6257D6 !important; /* Darker shade on hover */
+}

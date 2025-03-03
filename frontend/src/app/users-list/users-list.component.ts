@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Users } from '../users'; 
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-users-list',
@@ -10,7 +11,7 @@ import { UserService } from '../user.service';
 })
 export class UsersListComponent {
   users: Users[] = [];
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router ) { }
 
   ngOnInit(): void {
 
@@ -27,5 +28,8 @@ export class UsersListComponent {
         console.error("Error fetching users:", error);
       }
     );
+  }
+  updateUser(id: number){
+    this.router.navigate(['update-user', id]);
   }
 }

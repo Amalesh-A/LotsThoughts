@@ -6,12 +6,14 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { CreateUserComponent } from './create-user/create-user.component';
 import { FormsModule} from '@angular/forms';
+import { UpdateuserComponent } from './updateuser/updateuser.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersListComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    UpdateuserComponent
   ],
   imports: [
     BrowserModule,
