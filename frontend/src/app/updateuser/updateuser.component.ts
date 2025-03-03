@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Users } from '../users';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../user.service';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-updateuser',
@@ -36,5 +37,10 @@ export class UpdateuserComponent implements OnInit {
       },
       (error) => console.log(error)
     );
+  }
+
+  onSubmit(form: NgForm): void {
+    console.log(this.user)
+    this.updateUser();
   }
 }
