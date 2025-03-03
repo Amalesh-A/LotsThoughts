@@ -14,7 +14,8 @@
             <td>{{ user.lastName }}</td>
             <td>{{ user.email }}</td>
             <td>
-                <button (click)="updateUser(user.id)" class="btn btn-custom">Update</button>
+                <button (click)="updateUser(user.id)" class="btn btn-custom">✏️</button>
+                <button (click)="deleteUser(user.id)" class="btn btn-danger" style="margin-left: 10px;">🗑️</button>
             </td>
         </tr>
 </table>

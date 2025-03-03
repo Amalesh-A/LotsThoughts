@@ -20,7 +20,7 @@ export class UsersListComponent {
 
   private getUsers() {
     this.userService.getUserList().subscribe(
-      data => {
+      (data: any) => {
         console.log("Fetched Users:", data); // Debugging API response
         this.users = data;
       },
@@ -31,5 +31,13 @@ export class UsersListComponent {
   }
   updateUser(id: number){
     this.router.navigate(['update-user', id]);
+  }
+
+  deleteUser(id: number){
+    this.userService.deleteUser(id).subscribe(
+      data => {
+        console.log(data);
+        this.getUsers();
+      })
   }
 }
