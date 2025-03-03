@@ -40,4 +40,8 @@ export class UsersListComponent {
         this.getUsers();
       })
   }
+
+  userdetails(id: number){
+    this.router.navigate(['user-details', id]);
+  }
 }
