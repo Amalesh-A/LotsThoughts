@@ -44,30 +44,27 @@ public class Users {
         this.id = id;
     }
 
-    public String getfirstName() {
+    public String getFirstName() {
         return firstName;
     }
 
-    public void setfirstName(String firstName) {
+    public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
 
-    public String getlastName() {
+    public String getLastName() {
         return lastName;
     }
 
-    public void setlastName(String lastName) {
+    public void setLastName(String lastName) {
         this.lastName = lastName;
     }
 
-    public String getemail() {
+    public String getEmail() {
         return email;
     }
 
-    public void setemail(String email) {
+    public void setEmail(String email) {
         this.email = email;
     }
-
-    
-    
 }

@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import com.thoughts.springboot_backend.exception.ResourceNotFoundException;
+import org.springframework.web.bind.annotation.PutMapping;
 
 @CrossOrigin(origins = "http://localhost:4200") // Allow requests from Angular
 @RestController
@@ -43,5 +44,17 @@ public class UsersControllers {
         Users user = usersRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Check again, User not exist with id :" + id));
         return ResponseEntity.ok(user);
+    }
+
+    //update user
+    @PutMapping("/users/{id}")
+    public ResponseEntity<Users> updateUsers(@PathVariable Long id, @RequestBody Users userDetails){
+        Users user = usersRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Check again, User not exist with id :" + id));
+        user.setFirstName(userDetails.getFirstName());
+        user.setLastName(userDetails.getLastName());
+        user.setEmail(userDetails.getEmail());
+        Users updatedUser = usersRepository.save(user);
+        return ResponseEntity.ok(updatedUser);
     }
 }
