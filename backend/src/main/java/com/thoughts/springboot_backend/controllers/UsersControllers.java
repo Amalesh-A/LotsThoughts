@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import com.thoughts.springboot_backend.exception.ResourceNotFoundException;
 import org.springframework.web.bind.annotation.PutMapping;
 
+import java.util.Map;
+import java.util.HashMap;
+import org.springframework.web.bind.annotation.DeleteMapping;
+
 @CrossOrigin(origins = "http://localhost:4200") // Allow requests from Angular
 @RestController
 @RequestMapping("/api/v1")
@@ -56,5 +60,15 @@ public class UsersControllers {
         user.setEmail(userDetails.getEmail());
         Users updatedUser = usersRepository.save(user);
         return ResponseEntity.ok(updatedUser);
+    }
+
+    @DeleteMapping("/users/{id}")
+    public ResponseEntity<Map<String, Boolean>> deleteUser(@PathVariable Long id){
+        Users user = usersRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Check again, User not exist with id :" + id));
+        usersRepository.delete(user);
+        Map<String, Boolean> response = new HashMap<>();
+        response.put("deleted", Boolean.TRUE);
+        return ResponseEntity.ok(response);
     }
 }
